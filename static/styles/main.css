@@ -85,7 +85,7 @@ body {
 
 @media only screen and (max-width: 700px) {
     body {
-        max-width: 500px;
+        max-width: 470px;
     }
 
     .foot-link {
@@ -95,7 +95,7 @@ body {
 
 @media only screen and (max-width: 500px) {
     body {
-        max-width: 350px;
+        max-width: 320px;
     }
 
     .foot-link {
