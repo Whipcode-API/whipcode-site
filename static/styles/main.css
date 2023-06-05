@@ -87,10 +87,18 @@ body {
     body {
         max-width: 550px;
     }
+
+    .foot-link {
+        font-size: small;
+    }
 }
 
 @media only screen and (max-width: 500px) {
     body {
         max-width: 400px;
+    }
+
+    .foot-link {
+        font-size: small;
     }
 }
