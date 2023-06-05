@@ -85,12 +85,12 @@ body {
 
 @media only screen and (max-width: 700px) {
     body {
-        max-width: 500px;
+        max-width: 550px;
     }
 }
 
 @media only screen and (max-width: 500px) {
     body {
-        max-width: 300px;
+        max-width: 400px;
     }
 }
