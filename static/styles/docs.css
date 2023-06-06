@@ -1,0 +1,241 @@
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url("/static/fonts/jetbrainsmono-regular-webfont.eot");
+    src: url("/static/fonts/jetbrainsmono-regular-webfont.woff2") format("woff2"),
+         url("/static/fonts/jetbrainsmono-regular-webfont.woff") format("woff"),
+         url("/static/fonts/jetbrainsmono-regular-webfont.ttf") format("truetype"),
+         url("/static/fonts/jetbrainsmono-regular-webfont.svg#JetBrainsMono") format("svg");
+}
+
+body {
+    font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #D3D3D3;
+    background-color: #152238;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-feature-settings: "kern" 1;
+    -moz-font-feature-settings: "kern" 1;
+    -o-font-feature-settings: "kern" 1;
+    font-feature-settings: "kern" 1;
+    font-kerning: normal;
+    padding: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        padding: 5px;
+    }
+    body>#content {
+        padding: 0px 20px 20px 20px !important;
+    }
+}
+
+body>#content {
+    margin: 0px;
+    max-width: 900px;
+    border: 1px solid #152238;
+    padding: 10px 40px;
+    padding-bottom: 20px;
+    border-radius: 2px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+summary {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+hr {
+    color: #bbb;
+    background-color: #bbb;
+    height: 1px;
+    flex: 0 1 auto;
+    margin: 1em 0;
+    padding: 0;
+    border: none;
+}
+
+.hljs{
+    color:#abb2bf;
+    background:#14161a !important;
+}
+
+.hljs-operator {
+    color: #868686;
+    /* There is a bug where the syntax highlighter would pick no color for e.g. `&&` symbols in the code samples. Let's overwrite this */
+}
+
+
+/**
+ * Links
+ */
+
+a {
+    color: #D3D3D3;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+a:hover {
+    color: #FFF;
+    text-decoration: underline;
+}
+
+pre {
+    background-color: #152238;
+    border-radius: 3px;
+    font-size: 85%;
+    line-height: 1.45;
+    overflow: auto;
+    padding: 16px;
+}
+
+
+/**
+  * Code blocks
+  */
+
+code {
+    background-color: #152238;
+    border-radius: 3px;
+    font-size: 85%;
+    margin: 0;
+    word-wrap: break-word;
+    padding: .2em .4em;
+    font-family: JetBrainsMono, monospace;
+}
+
+.hljs-string {
+    font-family: JetBrainsMono, monospace;
+}
+
+.hljs-keyword {
+    font-family: JetBrainsMono, monospace;
+}
+
+pre>code {
+    background-color: transparent;
+    border: 0;
+    display: inline;
+    line-height: inherit;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+    word-wrap: normal;
+    font-size: 100%;
+    font-family: JetBrainsMono, monospace;
+}
+
+
+/**
+ * Blockquotes
+ */
+
+blockquote {
+    margin-left: 30px;
+    margin-top: 0px;
+    margin-bottom: 16px;
+    border-left-width: 3px;
+    padding: 0 1em;
+    color: #828282;
+    border-left: 4px solid #e8e8e8;
+    padding-left: 15px;
+    font-size: 18px;
+    letter-spacing: -1px;
+    font-style: italic;
+}
+
+blockquote * {
+    font-style: normal !important;
+    letter-spacing: 0;
+    color: #6a737d !important;
+}
+
+
+/**
+ * Tables
+ */
+
+table {
+    border-spacing: 2px;
+    display: block;
+    font-size: 14px;
+    overflow: auto;
+    width: 100%;
+    margin-bottom: 16px;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 6px 13px;
+    border: 1px solid #152238;
+}
+
+th {
+    font-weight: 600;
+    padding: 6px 13px;
+    border: 1px solid #152238;
+}
+
+tr {
+    background-color: #152238;
+    border-top: 1px solid #c6cbd1;
+}
+
+table tr:nth-child(2n) {
+    background-color: #152238;
+}
+
+
+/**
+ * Others
+ */
+
+img {
+    max-width: 100%;
+}
+
+p {
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    color: #D3D3D3;
+}
+
+ul {
+    margin-top: 0;
+}
+
+li {
+    color: #D3D3D3;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+li+li {
+    margin-top: 0.25em;
+}
+
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #D3D3D3;
+}
+
+h1,
+h2,
+h3 {
+    border-bottom: 1px solid #eaecef;
+    color: #FFF;
+    font-family: JetBrainsMono, monospace;
+    /* Darker */
+}
+
+h1 {
+    border-bottom: none;
+}
+
+code>* {
+    font-family: JetBrainsMono, monospace !important;
+}

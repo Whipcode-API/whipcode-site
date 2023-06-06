@@ -1,10 +1,11 @@
-# Whipcode API Documentation
+# API Docs
 
-A [RapidAPI](https://rapidapi.com) key and Whipcode [subscription](https://rapidapi.com/Whipcode/api/whipcode/pricing) are required to access the API.
 
 ## Endpoint
 
 Whipcode's V1 endpoint is [https://whipcode.p.rapidapi.com](https://whipcode.p.rapidapi.com)
+
+A [RapidAPI](https://rapidapi.com) key and Whipcode [subscription](https://rapidapi.com/Whipcode/api/whipcode/pricing) are required to access the endpoint.
 
 Only POST requests are supported, GET requests will be rejected.
 

@@ -5,20 +5,25 @@
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <meta charset="UTF-8">
           <link rel="icon" type="image/png" href="/static/icons/favicon.png">
+          <link rel="stylesheet" href="/static/styles/docs.css">
         </head>
         <body>
           <div id='content'>
-      <h1 id="whipcode-api-documentation">Whipcode API Documentation</h1>
-<p>A <a href="https://rapidapi.com">RapidAPI</a> key and Whipcode <a href="https://rapidapi.com/Whipcode/api/whipcode/pricing">subscription</a> are required to access the API.</p>
+      <h1 id="api-docs">API Docs</h1>
+      <a href="/" style="font-family:JetBrainsMono"><- Home</a>
+<br><br><br>
 <h2 id="endpoint">Endpoint</h2>
 <p>Whipcode's V1 endpoint is <a href="https://whipcode.p.rapidapi.com">https://whipcode.p.rapidapi.com</a></p>
+<p>A <a href="https://rapidapi.com">RapidAPI</a> key and Whipcode <a href="https://rapidapi.com/Whipcode/api/whipcode/pricing">subscription</a> are required to access the endpoint.</p>
 <p>Only POST requests are supported, GET requests will be rejected.</p>
+<br><br>
 <h2 id="headers">Headers</h2>
 <p>These headers are required for requests:</p>
 <pre><code class="hljs text language-text">Content-Type: application/json
 X-RapidAPI-Key: 
 X-RapidAPI-Host: whipcode.p.rapidapi.com
 </code></pre>
+<br><br>
 <h2 id="parameters">Parameters</h2>
 <ul>
 <li><p><code>language_id</code> (string) - ID of the interpreter to use for running the provided code</p>
@@ -58,6 +63,7 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
 </table></li>
 <li><p><code>code</code> (string) - The source code, base64 encoded</p></li>
 </ul>
+<br><br>
 <h2 id="server-response">Server Response</h2>
 <p>Successful requests will contain:</p>
 <ul>
@@ -79,6 +85,7 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
 <ul>
 <li><code>message</code> (string)</li>
 </ul>
+<br><br>
 <h2 id="example-request">Example Request</h2>
 <p>Here's an example Python snippet makes a request to run Javascript with Whipcode:</p>
 <pre><code class="hljs python3 language-python3"><span class="hljs-keyword">import</span> requests
@@ -120,253 +127,6 @@ stderr:
 </code></pre>
 
           </div>
-          <style type='text/css'>@font-face {
-    font-family: "JetBrainsMono";
-    src: url("/static/fonts/jetbrainsmono-regular-webfont.eot");
-    src: url("/static/fonts/jetbrainsmono-regular-webfont.woff2") format("woff2"),
-         url("/static/fonts/jetbrainsmono-regular-webfont.woff") format("woff"),
-         url("/static/fonts/jetbrainsmono-regular-webfont.ttf") format("truetype"),
-         url("/static/fonts/jetbrainsmono-regular-webfont.svg#JetBrainsMono") format("svg");
-}
-
-body {
-    font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #111;
-    background-color: #fbfbfb;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
-    padding: 30px;
-}
-
-@media only screen and (max-width: 600px) {
-    body {
-        padding: 5px;
-    }
-    body>#content {
-        padding: 0px 20px 20px 20px !important;
-    }
-}
-
-body>#content {
-    margin: 0px;
-    max-width: 900px;
-    border: 1px solid #e1e4e8;
-    padding: 10px 40px;
-    padding-bottom: 20px;
-    border-radius: 2px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-summary {
-    cursor: pointer;
-    text-decoration: underline;
-}
-
-hr {
-    color: #bbb;
-    background-color: #bbb;
-    height: 1px;
-    flex: 0 1 auto;
-    margin: 1em 0;
-    padding: 0;
-    border: none;
-}
-
-.hljs-operator {
-    color: #868686;
-    /* There is a bug where the syntax highlighter would pick no color for e.g. `&&` symbols in the code samples. Let's overwrite this */
-}
-
-
-/**
- * Links
- */
-
-a {
-    color: #0366d6;
-    text-decoration: none;
-}
-
-a:visited {
-    color: #0366d6;
-}
-
-a:hover {
-    color: #0366d6;
-    text-decoration: underline;
-}
-
-pre {
-    background-color: #f6f8fa;
-    border-radius: 3px;
-    font-size: 85%;
-    line-height: 1.45;
-    overflow: auto;
-    padding: 16px;
-}
-
-
-/**
-  * Code blocks
-  */
-
-code {
-    background-color: rgba(27, 31, 35, .05);
-    border-radius: 3px;
-    font-size: 85%;
-    margin: 0;
-    word-wrap: break-word;
-    padding: .2em .4em;
-    font-family: JetBrainsMono, monospace;
-}
-
-.hljs-string {
-    font-family: JetBrainsMono, monospace;
-}
-
-.hljs-keyword {
-    font-family: JetBrainsMono, monospace;
-}
-
-pre>code {
-    background-color: transparent;
-    border: 0;
-    display: inline;
-    line-height: inherit;
-    margin: 0;
-    overflow: visible;
-    padding: 0;
-    word-wrap: normal;
-    font-size: 100%;
-    font-family: JetBrainsMono, monospace;
-}
-
-
-/**
- * Blockquotes
- */
-
-blockquote {
-    margin-left: 30px;
-    margin-top: 0px;
-    margin-bottom: 16px;
-    border-left-width: 3px;
-    padding: 0 1em;
-    color: #828282;
-    border-left: 4px solid #e8e8e8;
-    padding-left: 15px;
-    font-size: 18px;
-    letter-spacing: -1px;
-    font-style: italic;
-}
-
-blockquote * {
-    font-style: normal !important;
-    letter-spacing: 0;
-    color: #6a737d !important;
-}
-
-
-/**
- * Tables
- */
-
-table {
-    border-spacing: 2px;
-    display: block;
-    font-size: 14px;
-    overflow: auto;
-    width: 100%;
-    margin-bottom: 16px;
-    border-spacing: 0;
-    border-collapse: collapse;
-}
-
-td {
-    padding: 6px 13px;
-    border: 1px solid #dfe2e5;
-}
-
-th {
-    font-weight: 600;
-    padding: 6px 13px;
-    border: 1px solid #dfe2e5;
-}
-
-tr {
-    background-color: #fff;
-    border-top: 1px solid #c6cbd1;
-}
-
-table tr:nth-child(2n) {
-    background-color: #f6f8fa;
-}
-
-
-/**
- * Others
- */
-
-img {
-    max-width: 100%;
-}
-
-p {
-    line-height: 24px;
-    font-weight: 400;
-    font-size: 16px;
-    color: #24292e;
-}
-
-ul {
-    margin-top: 0;
-}
-
-li {
-    color: #24292e;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
-}
-
-li+li {
-    margin-top: 0.25em;
-}
-
-* {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    color: #24292e;
-}
-
-a:visited {
-    color: #0366d6;
-}
-
-h1,
-h2,
-h3 {
-    border-bottom: 1px solid #eaecef;
-    color: #111;
-    /* Darker */
-}
-
-code>* {
-    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace !important;
-}</style>
           <style type='text/css'>pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}</style>
-          <script src="https://unpkg.com/darkreader@4.9.58/darkreader.js"></script>
-          <script>
-              DarkReader.setFetchMethod(window.fetch)
-              DarkReader.enable({
-                  brightness: 100,
-                  contrast: 150,
-                  sepia: 10
-              });
-          </script>
         </body>
       </html>
