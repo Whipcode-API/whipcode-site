@@ -7,6 +7,11 @@
          url("/static/fonts/jetbrainsmono-regular-webfont.svg#JetBrainsMono") format("svg");
 }
 
+
+html {
+    cursor: url("/static/cursors/cursor.png") 10 10, auto;
+}
+
 body {
     font: 400 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #D3D3D3;
@@ -74,6 +79,7 @@ a {
     color: #D3D3D3;
     text-decoration: underline;
     text-underline-offset: 2px;
+    cursor: url("/static/cursors/cursor_yellow.png") 10 10, auto;
 }
 
 a:hover {
