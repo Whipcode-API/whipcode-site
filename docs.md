@@ -7,7 +7,7 @@ Whipcode's V1 endpoint is [https://whipcode.p.rapidapi.com](https://whipcode.p.r
 
 A [RapidAPI](https://rapidapi.com) key and Whipcode [subscription](https://rapidapi.com/Whipcode/api/whipcode/pricing) are required to access the endpoint.
 
-Only POST requests are supported, GET requests will be rejected.
+Only POST requests are accepted, GET requests will be rejected.
 
 ## Headers
 
@@ -20,7 +20,7 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
 
 ## Parameters
 
-- `language_id` (string) - ID of the interpreter to use for running the provided code
+- `language_id` (integer/string) - ID of the interpreter to use for running the provided code.
 
     |Interpreter|ID|
     |--|--|
@@ -31,17 +31,18 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
     |Lua|5|
     |Ruby|6|
 
-- `code` (string) - The source code, base64 encoded
+- `code` (string) - The source code, base64 encoded.
 
 ## Server Response
 
 Successful requests will contain:
-- `stdout` (string) - All data captured from stdout
-- `stderr` (string) - All data captured from stderr
-- `container_age` (float) - Duration the container allocated for your code ran, in seconds
+- `stdout` (string) - All data captured from stdout.
+- `stderr` (string) - All data captured from stderr.
+- `container_age` (float) - Duration the container allocated for your code ran, in seconds.
+- `timeout` (boolean) - Boolean value depending on whether your container lived past the timeout period. Timeout is 8 seconds, after which your container gets forcefully killed. A reply from a timed-out request will not have any data in `stdout` and `stderr`.
 
 In the event of an error, or an invalid request:
-- `detail` (string) - Details about why the request failed to complete
+- `detail` (string) - Details about why the request failed to complete.
 
 The response will also contain the appropriate status codes, which follows the guidelines in [restfulapi.net/http-status-codes](https://restfulapi.net/http-status-codes/)
 
@@ -69,7 +70,7 @@ console.log('Hello world!');
 encoded = base64.b64encode(source.encode()).decode()
 
 payload = {
-	"language_id": "2",
+	"language_id": 2,
 	"code": encoded
 }
 
@@ -82,10 +83,15 @@ headers = {
 response = requests.post(url, json=payload, headers=headers)
 
 if response.status_code == 200:
-    print("stdout: {}\nstderr:{}".format(
-        response.json()["stdout"],
-        response.json()["stderr"]
-    ))
+    response = response.json()
+    if not response["timeout"]:
+        print("stdout: {}\nstderr:{}".format(
+            response.["stdout"],
+            response.["stderr"]
+        ))
+    
+    else:
+        print("Code execution timed out.")
 
 else:
     print(response.json())
