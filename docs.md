@@ -30,6 +30,7 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
     |Perl|4|
     |Lua|5|
     |Ruby|6|
+    |C (tcc)|7|
 
 - `code` (string) - The source code, base64 encoded. Whipcode will reject any code submission (after decoding) that has more than 50000 characters.
 
