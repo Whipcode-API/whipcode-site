@@ -31,7 +31,7 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
     |Lua|5|
     |Ruby|6|
 
-- `code` (string) - The source code, base64 encoded.
+- `code` (string) - The source code, base64 encoded. Whipcode will reject any code submission (after decoding) that has more than 50000 characters.
 
 ## Server Response
 
@@ -39,18 +39,18 @@ Successful requests will contain:
 - `stdout` (string) - All data captured from stdout.
 - `stderr` (string) - All data captured from stderr.
 - `container_age` (float) - Duration the container allocated for your code ran, in seconds.
-- `timeout` (boolean) - Boolean value depending on whether your container lived past the timeout period. Timeout is 8 seconds, after which your container gets forcefully killed. A reply from a timed-out request will not have any data in `stdout` and `stderr`.
+- `timeout` (boolean) - Boolean value depending on whether your container lived past the timeout period. Timeout is 8 seconds, after which your container gets forcefully killed. A reply from a timed-out request will not have any data in `stdout` and `stderr`
 
-In the event of an error, or an invalid request:
+In the event of an error, or an invalid/rejected request:
 - `detail` (string) - Details about why the request failed to complete.
 
 The response will also contain the appropriate status codes, which follows the guidelines in [restfulapi.net/http-status-codes](https://restfulapi.net/http-status-codes/)
 
-If the Whipcode API is down or your API key is invalid, RapidAPI will return their own response which will contain either:
+If the Whipcode API is down, RapidAPI will return their own response which will contain:
 - `messages` (string)
 - `info` (string)
 
-Or just:
+Similarly, if your API key is invalid or your request size exceeds 500 KB, the response will contain:
 - `message` (string)
 
 ## Example Request

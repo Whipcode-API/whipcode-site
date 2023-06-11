@@ -61,7 +61,7 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
 </tr>
 </tbody>
 </table></li>
-<li><p><code>code</code> (string) - The source code, base64 encoded.</p></li>
+<li><p><code>code</code> (string) - The source code, base64 encoded. Whipcode will reject any code submission (after decoding) that has more than 50000 characters.</p></li>
 </ul>
 <br><br>
 <h2 id="server-response">Server Response</h2>
@@ -70,19 +70,19 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
 <li><code>stdout</code> (string) - All data captured from stdout.</li>
 <li><code>stderr</code> (string) - All data captured from stderr.</li>
 <li><code>container_age</code> (float) - Duration the container allocated for your code ran, in seconds.</li>
-<li><code>timeout</code> (boolean) - Boolean value depending on whether your container lived past the timeout period. Timeout is 8 seconds, after which your container gets forcefully killed. A reply from a timed-out request will not have any data in <code>stdout</code> and <code>stderr</code>.</li>
+<li><code>timeout</code> (boolean) - Boolean value depending on whether your container lived past the timeout period. Timeout is 8 seconds, after which your container gets forcefully killed. A reply from a timed-out request will not have any data in <code>stdout</code> and <code>stderr</code></li>
 </ul>
-<p>In the event of an error, or an invalid request:</p>
+<p>In the event of an error, or an invalid/rejected request:</p>
 <ul>
 <li><code>detail</code> (string) - Details about why the request failed to complete.</li>
 </ul>
 <p>The response will also contain the appropriate status codes, which follows the guidelines in <a href="https://restfulapi.net/http-status-codes/">restfulapi.net/http-status-codes</a></p>
-<p>If the Whipcode API is down or your API key is invalid, RapidAPI will return their own response which will contain either:</p>
+<p>If the Whipcode API is down, RapidAPI will return their own response which will contain:</p>
 <ul>
 <li><code>messages</code> (string)</li>
 <li><code>info</code> (string)</li>
 </ul>
-<p>Or just:</p>
+<p>Similarly, if your API key is invalid or your request size exceeds 500 KB, the response will contain:</p>
 <ul>
 <li><code>message</code> (string)</li>
 </ul>
