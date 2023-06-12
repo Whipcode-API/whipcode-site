@@ -32,52 +32,50 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
 <tr>
 <th>Language</th>
 <th>ID</th>
+<th></th>
+<th></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Python</td>
 <td>1</td>
+<td>C (GCC)</td>
+<td>7</td>
 </tr>
 <tr>
-<td>Node.js</td>
+<td>Javascript (Node.js)</td>
 <td>2</td>
+<td>C++ (GCC)</td>
+<td>8</td>
 </tr>
 <tr>
 <td>Bash</td>
 <td>3</td>
-</tr>
-<tr>
-<td>Perl</td>
-<td>4</td>
-</tr>
-<tr>
-<td>Lua</td>
-<td>5</td>
-</tr>
-<tr>
-<td>Ruby</td>
-<td>6</td>
-</tr>
-<tr>
-<td>C</td>
-<td>7</td>
-</tr>
-<tr>
-<td>C++</td>
-<td>8</td>
-</tr>
-<tr>
 <td>Rust</td>
 <td>9</td>
 </tr>
 <tr>
+<td>Perl</td>
+<td>4</td>
 <td>Fortran</td>
 <td>10</td>
 </tr>
+<tr>
+<td>Lua</td>
+<td>5</td>
+<td>Haskell</td>
+<td>11</td>
+</tr>
+<tr>
+<td>Ruby</td>
+<td>6</td>
+<td></td>
+<td></td>
+</tr>
 </tbody>
 </table></li>
-<li><p><code>code</code> (string) - The source code, base64 encoded. Whipcode will reject any code submission (after decoding) that has more than 50000 characters.</p></li>
+<li><p><code>code</code> (string) - The source code, base64 encoded. Submissions with more than 50000 characters (after decoding) will be rejected.</p></li>
 </ul>
 <br><br>
 <h2 id="server-response">Server Response</h2>
@@ -86,7 +84,7 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
 <li><code>stdout</code> (string) - All data captured from stdout.</li>
 <li><code>stderr</code> (string) - All data captured from stderr.</li>
 <li><code>container_age</code> (float) - Duration the container allocated for your code ran, in seconds.</li>
-<li><code>timeout</code> (boolean) - Boolean value depending on whether your container lived past the timeout period. Timeout is 8 seconds, after which your container gets forcefully killed. A reply from a timed-out request will not have any data in <code>stdout</code> and <code>stderr</code></li>
+<li><code>timeout</code> (boolean) - Boolean value depending on whether your container lived past the timeout period. Timeout is 10 seconds, after which your container gets forcefully killed. A reply from a timed-out request will not have any data in <code>stdout</code> and <code>stderr</code></li>
 </ul>
 <p>In the event of an error, or an invalid/rejected request:</p>
 <ul>

@@ -22,20 +22,17 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
 
 - `language_id` (integer/string) - ID of the language the submitted code is written in.
 
-    |Language|ID|
-    |--|--|
-    |Python|1|
-    |Node.js|2|
-    |Bash|3|
-    |Perl|4|
-    |Lua|5|
-    |Ruby|6|
-    |C|7|
-    |C++|8|
-    |Rust|9|
-    |Fortran|10|
+    |Language|ID|||
+    |--|--|--|--|
+    |Python|1|C (GCC)|7|
+    |Javscript (Node.js)|2|C++ (GCC)|8|
+    |Bash|3|Rust|9|
+    |Perl|4|Fortran|10|
+    |Lua|5|Haskell|11|
+    |Ruby|6|||
 
-- `code` (string) - The source code, base64 encoded. Whipcode will reject any code submission (after decoding) that has more than 50000 characters.
+
+- `code` (string) - The source code, base64 encoded. Submissions with more than 50000 characters (after decoding) will be rejected.
 
 ## Server Response
 
@@ -43,7 +40,7 @@ Successful requests will contain:
 - `stdout` (string) - All data captured from stdout.
 - `stderr` (string) - All data captured from stderr.
 - `container_age` (float) - Duration the container allocated for your code ran, in seconds.
-- `timeout` (boolean) - Boolean value depending on whether your container lived past the timeout period. Timeout is 8 seconds, after which your container gets forcefully killed. A reply from a timed-out request will not have any data in `stdout` and `stderr`
+- `timeout` (boolean) - Boolean value depending on whether your container lived past the timeout period. Timeout is 10 seconds, after which your container gets forcefully killed. A reply from a timed-out request will not have any data in `stdout` and `stderr`
 
 In the event of an error, or an invalid/rejected request:
 - `detail` (string) - Details about why the request failed to complete.
