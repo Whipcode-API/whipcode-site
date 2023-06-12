@@ -44,7 +44,7 @@ X-RapidAPI-Host: whipcode.p.rapidapi.com
 <td>7</td>
 </tr>
 <tr>
-<td>Javascript (Node.js)</td>
+<td>Javscript (Node.js)</td>
 <td>2</td>
 <td>C++ (GCC)</td>
 <td>8</td>
@@ -145,6 +145,16 @@ response = requests.post(url, json=payload, headers=headers)
 <pre><code class="hljs text language-text">stdout: Hello world!\n 
 stderr:
 </code></pre>
+<br><br>
+<h2 id="execution-limits">Execution Limits</h2>
+<p>Each request starts a new container which runs the submitted code, and is destroyed after. Here are some of the resource limits that may affect your code's execution:</p>
+<ul>
+<li><p>Memory: During periods with low server load, containers can use up to 512 mb of memory each. During periods with medium to high server load, they will be limited to somewhere between 128 mb and 512 mb.</p></li>
+<li><p>Processes: The maximum number of processes allowed inside each container is 32. Spawning/forking processes too much may cause errors.</p></li>
+<li><p>CPU: Each container is only allowed to execute it's processes on a single cpu core, making multiprocessing ineffective.</p></li>
+<li><p>Networking: Disabled completely for security/abuse reasons.</p></li>
+<li><p>Filesystem: The root filesystem of the containers are read-only. However, a tmpfs of 64 mb is mounted at <code>/tmp</code> as read-write, letting you perform write operations there.</p></li>
+</ul>
 
           </div>
           <style type='text/css'>pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{color:#abb2bf;background:#282c34}.hljs-comment,.hljs-quote{color:#5c6370;font-style:italic}.hljs-doctag,.hljs-formula,.hljs-keyword{color:#c678dd}.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#e06c75}.hljs-literal{color:#56b6c2}.hljs-addition,.hljs-attribute,.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#98c379}.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#d19a66}.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#61aeee}.hljs-built_in,.hljs-class .hljs-title,.hljs-title.class_{color:#e6c07b}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}.hljs-link{text-decoration:underline}</style>

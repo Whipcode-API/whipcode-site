@@ -104,3 +104,17 @@ The resulting output:
 stdout: Hello world!\n 
 stderr:
 ```
+
+## Execution Limits
+
+Each request starts a new container which runs the submitted code, and is destroyed after. Here are some of the resource limits that may affect your code's execution:
+
+- Memory: During periods with low server load, containers can use up to 512 mb of memory each. During periods with medium to high server load, they will be limited to somewhere between 128 mb and 512 mb.
+
+- Processes: The maximum number of processes allowed inside each container is 32. Spawning/forking processes too much may cause errors.
+
+- CPU: Each container is only allowed to execute it's processes on a single cpu core, making multiprocessing ineffective.
+
+- Networking: Disabled completely for security/abuse reasons.
+
+- Filesystem: The root filesystem of the containers are read-only. However, a tmpfs of 64 mb is mounted at `/tmp` as read-write, letting you perform write operations there.
