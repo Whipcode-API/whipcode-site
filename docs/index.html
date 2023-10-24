@@ -131,8 +131,8 @@ response = requests.post(url, json=payload, headers=headers)
     response = response.json()
     <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> response[<span class="hljs-string">&quot;timeout&quot;</span>]:
         <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;stdout: {}\nstderr:{}&quot;</span>.<span class="hljs-built_in">format</span>(
-            response.[<span class="hljs-string">&quot;stdout&quot;</span>],
-            response.[<span class="hljs-string">&quot;stderr&quot;</span>]
+            response[<span class="hljs-string">&quot;stdout&quot;</span>],
+            response[<span class="hljs-string">&quot;stderr&quot;</span>]
         ))
 
     <span class="hljs-keyword">else</span>:
