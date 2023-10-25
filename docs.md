@@ -87,8 +87,8 @@ if response.status_code == 200:
     response = response.json()
     if not response["timeout"]:
         print("stdout: {}\nstderr:{}".format(
-            response.["stdout"],
-            response.["stderr"]
+            response["stdout"],
+            response["stderr"]
         ))
     
     else:
