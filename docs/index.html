@@ -20,7 +20,7 @@
 <h2 id="headers">Headers</h2>
 <p>These headers are required for requests:</p>
 <pre><code class="hljs text language-text">Content-Type: application/json
-X-RapidAPI-Key: 
+X-RapidAPI-Key:
 X-RapidAPI-Host: whipcode.p.rapidapi.com
 </code></pre>
 <br><br>
@@ -115,35 +115,22 @@ console.log(&#x27;Hello world!&#x27;);
 encoded = base64.b64encode(source.encode()).decode()
 
 payload = {
-    <span class="hljs-string">&quot;language_id&quot;</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">&quot;language_id&quot;</span>: <span class="hljs-string">&quot;2&quot;</span>,
     <span class="hljs-string">&quot;code&quot;</span>: encoded
 }
 
 headers = {
     <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>,
-    <span class="hljs-string">&quot;X-RapidAPI-Key&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;X-RapidAPI-Key&quot;</span>: <span class="hljs-string">&quot;&lt;your-rapidapi-key&gt;&quot;</span>,
     <span class="hljs-string">&quot;X-RapidAPI-Host&quot;</span>: <span class="hljs-string">&quot;whipcode.p.rapidapi.com&quot;</span>
 }
 
 response = requests.post(url, json=payload, headers=headers)
 
-<span class="hljs-keyword">if</span> response.status_code == <span class="hljs-number">200</span>:
-    response = response.json()
-    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> response[<span class="hljs-string">&quot;timeout&quot;</span>]:
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;stdout: {}\nstderr:{}&quot;</span>.<span class="hljs-built_in">format</span>(
-            response[<span class="hljs-string">&quot;stdout&quot;</span>],
-            response[<span class="hljs-string">&quot;stderr&quot;</span>]
-        ))
-
-    <span class="hljs-keyword">else</span>:
-        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Code execution timed out.&quot;</span>)
-
-<span class="hljs-keyword">else</span>:
-    <span class="hljs-built_in">print</span>(response.json())
+<span class="hljs-built_in">print</span>(response.json())
 </code></pre>
 <p>The resulting output:</p>
-<pre><code class="hljs text language-text">stdout: Hello world!\n 
-stderr:
+<pre><code class="hljs text language-text">{'stdout': 'Hello world!\n', 'stderr': '', 'container_age': 1.386, 'timeout': False}
 </code></pre>
 <br><br>
 <h2 id="execution-limits">Execution Limits</h2>

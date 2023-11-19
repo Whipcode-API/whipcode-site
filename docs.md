@@ -14,7 +14,7 @@ Only POST requests are accepted, GET requests will be rejected.
 These headers are required for requests:
 ```text
 Content-Type: application/json
-X-RapidAPI-Key: 
+X-RapidAPI-Key:
 X-RapidAPI-Host: whipcode.p.rapidapi.com
 ```
 
@@ -71,38 +71,25 @@ console.log('Hello world!');
 encoded = base64.b64encode(source.encode()).decode()
 
 payload = {
-	"language_id": 2,
-	"code": encoded
+    "language_id": "2",
+    "code": encoded
 }
 
 headers = {
-	"Content-Type": "application/json",
-	"X-RapidAPI-Key": "",
-	"X-RapidAPI-Host": "whipcode.p.rapidapi.com"
+    "Content-Type": "application/json",
+    "X-RapidAPI-Key": "<your-rapidapi-key>",
+    "X-RapidAPI-Host": "whipcode.p.rapidapi.com"
 }
 
 response = requests.post(url, json=payload, headers=headers)
 
-if response.status_code == 200:
-    response = response.json()
-    if not response["timeout"]:
-        print("stdout: {}\nstderr:{}".format(
-            response["stdout"],
-            response["stderr"]
-        ))
-    
-    else:
-        print("Code execution timed out.")
-
-else:
-    print(response.json())
+print(response.json())
 ```
 
 The resulting output:
 
 ```text
-stdout: Hello world!\n 
-stderr:
+{'stdout': 'Hello world!\n', 'stderr': '', 'container_age': 1.386, 'timeout': False}
 ```
 
 ## Execution Limits
